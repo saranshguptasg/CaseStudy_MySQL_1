@@ -1,5 +1,5 @@
 # <p align="center">Customer Analysis</p>
-# <p align="center">![Pic](https://ibb.co/cc0LMgK)</p>
+# <p align="center">![Pic](https://github.com/saranshguptasg/CaseStudy_MySQL_1/blob/main/Result%20Screenshot/Ecommerce.jpeg)</p>
 
 **Tools Used:** Excel, MySQL
 
