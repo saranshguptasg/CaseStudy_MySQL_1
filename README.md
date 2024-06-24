@@ -15,6 +15,35 @@ The objective of this case study is to analyze the purchasing patterns of custom
 4. Determining price sensitivity and trends in product pricing.
 5. Evaluating the overall sales performance and identifying key areas for improvement.
 
+## Plan to Solve the Problem
+To address these business problems, a structured approach was followed using SQL queries to extract and analyze relevant data from the items_ordered and customers tables. Below is a detailed plan for solving the identified business problems:
+
+1. ####Identifying Popular and Unpopular Products:
+
+- Popular Products: Extract a list of items and their respective order counts to identify which products are ordered most frequently.
+- Unpopular Products: Identify items with the least number of orders or those ordered only once.
+Understanding Purchasing Behavior:
+
+2. ####Understanding Purchasing Behavior:
+
+- Analyze the number of orders and the total spending of each customer to understand their purchasing frequency and average expenditure.
+- Identify purchasing trends by examining the items purchased by different customer segments (e.g., based on customer ID or geographic location).
+
+3. ####Geographic Distribution of Customers:
+
+- Group customers by state and count the number of customers in each state to understand the geographic distribution.
+- Analyze the purchasing patterns of customers from different states to identify regional preferences and trends.
+
+4. ####Price Sensitivity and Product Pricing Trends:
+
+- Calculate the maximum, minimum, and average prices of items to understand the pricing distribution.
+- Identify items with significant price variations and analyze their impact on sales.
+
+5. ####Evaluating Sales Performance:
+
+- Calculate the total number of orders and the total revenue generated to evaluate overall sales performance.
+- Identify high-value customers and products that contribute significantly to revenue.
+
 ### Creating Database and Importing CSV file
 ```mysql
 CREATE DATABASE Item;
