@@ -36,6 +36,7 @@ FROM item
 LIMIT 10;
 ```
 Result:
+
 ![Item Table](https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Item%20Table.png)
 
 ### Customer Table
