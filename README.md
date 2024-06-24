@@ -1,4 +1,4 @@
-# CaseStudy-with-MySQL-1
+# <p align="center">Customer Analysis</p>
 
 **Tools Used:** Excel, MySQL
 
