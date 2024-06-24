@@ -3,6 +3,7 @@
 **Tools Used:** Excel, MySQL
 
 [Datasets Used](https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/tree/main/DataSet)
+
 [SQL Analysis (Code)](https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Case%20Study%201.sql)
 
 ### Creating Database and Importing CSV file
