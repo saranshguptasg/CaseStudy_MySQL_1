@@ -1,4 +1,4 @@
-# CaseStudy-with-MySQL
+# CaseStudy-with-MySQL-1
 
 
 ### Creating Database and Importing CSV file
