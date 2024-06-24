@@ -6,6 +6,15 @@
 
 [SQL Analysis (Code)](https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Case%20Study%201.sql)
 
+## Business Problem Statement
+The objective of this case study is to analyze the purchasing patterns of customers and derive meaningful insights from the sales data of a retail business. The database consists of two main tables: items_ordered and customers. The items_ordered table records the details of items purchased by customers, while the customers table contains customer information. By analyzing this data, the goal is to understand customer preferences, identify high-value products, and optimize sales strategies. The specific business problems we aim to address include:
+
+1. Identifying the most popular and least popular products.
+2. Understanding the purchasing behavior of different customer segments.
+3. Analyzing the geographic distribution of customers and their purchase patterns.
+4. Determining price sensitivity and trends in product pricing.
+5. Evaluating the overall sales performance and identifying key areas for improvement.
+
 ### Creating Database and Importing CSV file
 ```mysql
 CREATE DATABASE Item;
