@@ -1,5 +1,8 @@
-# CaseStudy-with-MySQL
+# CaseStudy-with-MySQL-1
 
+**Tools Used:** Excel, MySQL
+
+[Datasets Used](https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/tree/main/DataSet)
 
 ### Creating Database and Importing CSV file
 ```mysql
@@ -206,3 +209,115 @@ having count(*)>1;
 Result: 
 
 ![Q14](https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q14.png)
+
+### 15. Select the lastname, firstname, and city for all customers in the customers table. Display the results in Ascending Order based on the lastname.
+
+```mysql
+SELECT lastname, firstname, city
+from customer
+ORder by lastname asc;
+```
+Result: 
+
+![Q15](https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q15.png)
+
+### 16. Repeat the above query, but display the results in Descending order. 
+
+```mysql
+SELECT lastname, firstname, city
+from customer
+ORder by lastname desc;
+```
+Result: 
+
+![Q16](https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q16.png)
+
+### 17. Select the item and price for all of the items in the items_ordered table that the price is greater than 10.00. Display the results in Ascending order based on the price. 
+
+```mysql
+select item, price
+from item
+where price > 10
+order by price;
+```
+Result: 
+
+![Q17](https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q17.png)
+
+### 18. Select the customerid, order_date, and item from the items_ordered table for all items unless they are 'Snow Shoes' or if they are 'Ear Muffs'. Display the rows as long as they are not either of these two items.
+
+```mysql
+select customerid, order_date, item
+from item
+where item NOT IN ('Snow Shoes' , 'Ear Muffs');
+```
+Result: 
+
+![Q18](https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q18.png)
+
+### 19. Select the item and price of all items that start with the letters 'S', 'P', or 'F'.  
+
+```mysql
+select item, price
+from item
+where item regexp "^[spf]";
+```
+Result: 
+
+![Q19](https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q19.png)
+
+### 20. Select the date, item, and price from the items_ordered table for all of the rows that have a price value ranging from 10.00 to 80.00.
+
+
+```mysql
+select order_date, item, price
+from item
+where price between 10 and 80;
+```
+Result: 
+
+![Q20](https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q20.png)
+
+### 21. Select the firstname, city, and state from the customers table for all of the rows where the state value is either: Arizona, Washington, Oklahoma, Colorado, or Hawaii. 
+
+```mysql
+select firstname, city, state
+from customer
+where state in ('Arizona', 'Washington', 'Oklahoma', 'Colorado', 'Hawaii');
+```
+Result: 
+
+![Q21](https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q21.png)
+
+### 22. Select the item and per unit price for each item in the items_ordered table.
+
+```mysql
+select item, round(price/quantity,2)
+from item;
+```
+Result: 
+
+![Q22](https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q22.png)
+
+### 23. Write a query using a join to determine which items were ordered by each of the customers in the customers table. Select the customerid, firstname, lastname, order_date, item, and price for everything each customer purchased in the items_ordered table. 
+
+```mysql
+select i.customerid, c.firstname,c.lastname,i.order_date,i.item,i.price
+from item i inner join customer c
+on i.customerid = c.customerid;
+```
+Result: 
+
+![Q23](https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q23.png)
+
+### 24. Repeat the above query, however display the results sorted by state in descending order.
+
+```mysql
+select i.customerid, c.firstname,c.lastname,i.order_date,i.item,i.price
+from item i inner join customer c
+on i.customerid = c.customerid
+order by c.state desc;
+```
+Result: 
+
+![Q24](https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q24.png)
