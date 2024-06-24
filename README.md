@@ -1,1 +1,1 @@
-# Case-Study2-with-MySQL
+# CaseStudy-with-MySQL
