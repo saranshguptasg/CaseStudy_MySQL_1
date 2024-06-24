@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>in</title>
+  <style>
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<h1><p align="center">Customer Analysis</p></h1>
+<p><strong>Tools Used:</strong> Excel, MySQL</p>
+<p><a
+href="https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/tree/main/DataSet">Datasets
+Used</a></p>
+<p><a
+href="https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Case%20Study%201.sql">SQL
+Analysis (Code)</a></p>
+<h2>Business Problem Statement</h2>
+<p>The objective of this case study is to analyze the purchasing
+patterns of customers and derive meaningful insights from the sales data
+of a retail business. The database consists of two main tables:
+items_ordered and customers. The items_ordered table records the details
+of items purchased by customers, while the customers table contains
+customer information. By analyzing this data, the goal is to understand
+customer preferences, identify high-value products, and optimize sales
+strategies. The specific business problems we aim to address
+include:</p>
+<ol type="1">
+<li>Identifying the most popular and least popular products.</li>
+<li>Understanding the purchasing behavior of different customer
+segments.</li>
+<li>Analyzing the geographic distribution of customers and their
+purchase patterns.</li>
+<li>Determining price sensitivity and trends in product pricing.</li>
+<li>Evaluating the overall sales performance and identifying key areas
+for improvement.</li>
+</ol>
+<h2>Plan to Solve the Problem</h2>
+<p>To address these business problems, a structured approach was
+followed using SQL queries to extract and analyze relevant data from the
+items_ordered and customers tables. Below is a detailed plan for solving
+the identified business problems:</p>
+<h4>1. Identifying Popular and Unpopular Products:</h4>
+<ul>
+<li>Popular Products: Extract a list of items and their respective order
+counts to identify which products are ordered most frequently.</li>
+<li>Unpopular Products: Identify items with the least number of orders
+or those ordered only once. Understanding Purchasing Behavior:</li>
+</ul>
+<h4>2. Understanding Purchasing Behavior:</h4>
+<ul>
+<li>Analyze the number of orders and the total spending of each customer
+to understand their purchasing frequency and average expenditure.</li>
+<li>Identify purchasing trends by examining the items purchased by
+different customer segments (e.g., based on customer ID or geographic
+location).</li>
+</ul>
+<h4>3. Geographic Distribution of Customers:</h4>
+<ul>
+<li>Group customers by state and count the number of customers in each
+state to understand the geographic distribution.</li>
+<li>Analyze the purchasing patterns of customers from different states
+to identify regional preferences and trends.</li>
+</ul>
+<h4>4. Price Sensitivity and Product Pricing Trends:</h4>
+<ul>
+<li>Calculate the maximum, minimum, and average prices of items to
+understand the pricing distribution.</li>
+<li>Identify items with significant price variations and analyze their
+impact on sales.</li>
+</ul>
+<h4>5. Evaluating Sales Performance:</h4>
+<ul>
+<li>Calculate the total number of orders and the total revenue generated
+to evaluate overall sales performance.</li>
+<li>Identify high-value customers and products that contribute
+significantly to revenue.</li>
+</ul>
+<h3>Creating Database and Importing CSV file</h3>
+<pre class="mysql"><code>CREATE DATABASE Item;
+USE Item;</code></pre>
+<h3>Converting imported data into correct data type for analysis</h3>
+<pre class="mysql"><code>SELECT str_to_date(order_date,&quot;%d-%m-%Y&quot;)
+FROM item;
+
+ALTER TABLE item
+ADD Column od date;
+
+UPDATE item
+SET od = str_to_date(order_date,&quot;%d-%m-%Y&quot;);
+
+ALTER TABLE item
+DROP order_date;
+
+ALTER TABLE item
+ADD COLUMN order_date date;
+
+UPDATE item
+SET order_date = od;
+
+ALTER TABLE item
+DROP od;</code></pre>
+<h3>Item Table</h3>
+<pre class="mysql"><code>SELECT *
+FROM item
+LIMIT 10;</code></pre>
+<p>Result:</p>
+<p><img
+src="https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Item%20Table.png"
+alt="Item Table" /></p>
+<h3>Customer Table</h3>
+<pre class="mysql"><code>SELECT *
+FROM customer
+LIMIT 10;</code></pre>
+<p>Result:</p>
+<p><img
+src="https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Customer%20Table.png"
+alt="Customer Table" /></p>
+<h2>Questions I Wanted To Answer From the Dataset:</h2>
+<h3>1. From the items_ordered table, select a list of all items
+purchased for customerid = 10449. Display the customerid, item, and
+price for this customer.</h3>
+<pre class="mysql"><code>SELECT customerid, item, price
+FROM item
+WHERE customerid = 10449;</code></pre>
+<p>Result:</p>
+<p><img
+src="https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q1.png"
+alt="Q1" /></p>
+<h3>2. Select all columns from the items_ordered table for whoever
+purchased a Tent.</h3>
+<pre class="mysql"><code>SELECT *
+FROM item
+WHERE item = &quot;Tent&quot;;</code></pre>
+<p>Result:</p>
+<p><img
+src="https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q2.png"
+alt="Q2" /></p>
+<h3>3. Select the customerid, order_date, and item values from the
+items_ordered table for any items in the item column that start with the
+letter "S".</h3>
+<pre class="mysql"><code>SELECT customerid, order_date, item, price
+FROM item
+WHERE item LIKE &quot;S%&quot;;</code></pre>
+<p>Result:</p>
+<p><img
+src="https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q3.png"
+alt="Q3" /></p>
+<h3>4. Select the distinct items in the items_ordered table. In other
+words, display a listing of each of the unique items from the
+items_ordered table.</h3>
+<pre class="mysql"><code>SELECT item
+FROM item
+GROUP BY item
+HAVING count(*) =1;</code></pre>
+<p>Result:</p>
+<p><img
+src="https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q4.png"
+alt="Q4" /></p>
+<h3>5. Select the maximum price of any item ordered in the items_ordered
+table. Hint: Select the maximum price only.</h3>
+<pre class="mysql"><code>SELECT max(price)
+FROM item;</code></pre>
+<p>Result:</p>
+<p><img
+src="https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q5.png"
+alt="Q5" /></p>
+<h3>6. Select the average price of all of the items ordered that were
+purchased in the month of Dec.</h3>
+<pre class="mysql"><code>SELECT avg(price)
+FROM item
+WHERE month(order_date) = 12;</code></pre>
+<p>Result:</p>
+<p><img
+src="https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q6.png"
+alt="Q6" /></p>
+<h3>7. What are the total number of rows in the items_ordered
+table?</h3>
+<pre class="mysql"><code>SELECT count(*) as Total_Rows
+FROM item;</code></pre>
+<p>Result:</p>
+<p><img
+src="https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q7.png"
+alt="Q7" /></p>
+<h3>8. For all of the tents that were ordered in the items_ordered
+table, what is the price of the lowest tent?</h3>
+<pre class="mysql"><code>SELECT min(price)
+FROM item
+WHERE item = &quot;tent&quot;;</code></pre>
+<p>Result:</p>
+<p><img
+src="https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q8.png"
+alt="Q8" /></p>
+<h3>9. How many people are in each unique state in the customers table?
+Select the state and display the number of people in each. Hint: count
+is used to count rows in a column, sum works on numeric data only.</h3>
+<pre class="mysql"><code>SELECT state , count(*)
+FROM customer
+GROUP BY state;</code></pre>
+<p>Result:</p>
+<p><img
+src="https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q9.png"
+alt="Q9" /></p>
+<h3>10. From the items_ordered table, select the item, maximum price,
+and minimum price for each specific item in the table.</h3>
+<pre class="mysql"><code>SELECT item, max(price) as max, min(price) as min
+FROM item
+GROUP BY item;</code></pre>
+<p>Result:</p>
+<p><img
+src="https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q10.png"
+alt="Q10" /></p>
+<h3>11. How many orders did each customer make? Use the items_ordered
+table. Select the customerid, number of orders they made, and the sum of
+their orders. Click the Group By answers link below if you have any
+problems.</h3>
+<pre class="mysql"><code>SELECT customerid, count(*) as Total_orders, sum(price) as Total_price
+FROM item
+GROUP BY customerid;</code></pre>
+<p>Result:</p>
+<p><img
+src="https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q11.png"
+alt="Q11" /></p>
+<h3>12. How many people are in each unique state in the customers table
+that have more than one person in the state? Select the state and
+display the number of how many people are in each if it's greater than
+1.</h3>
+<pre class="mysql"><code>SELECT state, count(*)
+from customer
+GROUP BY state
+Having count(*)&gt;1;</code></pre>
+<p>Result:</p>
+<p><img
+src="https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q12.png"
+alt="Q12" /></p>
+<h3>13. From the items_ordered table, select the item, maximum price,
+and minimum price for each specific item in the table. Only display the
+results if the maximum price for one of the items is greater than
+190.00.</h3>
+<pre class="mysql"><code>SELECT item, max(price) as max, min(Price) as min
+from item 
+GROUP BY item
+HAving max&gt;190;</code></pre>
+<p>Result:</p>
+<p><img
+src="https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q13.png"
+alt="Q13" /></p>
+<h3>14. How many orders did each customer make? Use the items_ordered
+table. Select the customerid, number of orders they made, and the sum of
+their orders if they purchased more than 1 item.</h3>
+<pre class="mysql"><code>SELECT customerid, count(*), sum(quantity) as sum
+from item
+GROUP BY customerid
+having count(*)&gt;1;</code></pre>
+<p>Result:</p>
+<p><img
+src="https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q14.png"
+alt="Q14" /></p>
+<h3>15. Select the lastname, firstname, and city for all customers in
+the customers table. Display the results in Ascending Order based on the
+lastname.</h3>
+<pre class="mysql"><code>SELECT lastname, firstname, city
+from customer
+ORder by lastname asc;</code></pre>
+<p>Result:</p>
+<p><img
+src="https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q15.png"
+alt="Q15" /></p>
+<h3>16. Repeat the above query, but display the results in Descending
+order.</h3>
+<pre class="mysql"><code>SELECT lastname, firstname, city
+from customer
+ORder by lastname desc;</code></pre>
+<p>Result:</p>
+<p><img
+src="https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q16.png"
+alt="Q16" /></p>
+<h3>17. Select the item and price for all of the items in the
+items_ordered table that the price is greater than 10.00. Display the
+results in Ascending order based on the price.</h3>
+<pre class="mysql"><code>select item, price
+from item
+where price &gt; 10
+order by price;</code></pre>
+<p>Result:</p>
+<p><img
+src="https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q17.png"
+alt="Q17" /></p>
+<h3>18. Select the customerid, order_date, and item from the
+items_ordered table for all items unless they are 'Snow Shoes' or if
+they are 'Ear Muffs'. Display the rows as long as they are not either of
+these two items.</h3>
+<pre class="mysql"><code>select customerid, order_date, item
+from item
+where item NOT IN (&#39;Snow Shoes&#39; , &#39;Ear Muffs&#39;);</code></pre>
+<p>Result:</p>
+<p><img
+src="https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q18.png"
+alt="Q18" /></p>
+<h3>19. Select the item and price of all items that start with the
+letters 'S', 'P', or 'F'.</h3>
+<pre class="mysql"><code>select item, price
+from item
+where item regexp &quot;^[spf]&quot;;</code></pre>
+<p>Result:</p>
+<p><img
+src="https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q19.png"
+alt="Q19" /></p>
+<h3>20. Select the date, item, and price from the items_ordered table
+for all of the rows that have a price value ranging from 10.00 to
+80.00.</h3>
+<pre class="mysql"><code>select order_date, item, price
+from item
+where price between 10 and 80;</code></pre>
+<p>Result:</p>
+<p><img
+src="https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q20.png"
+alt="Q20" /></p>
+<h3>21. Select the firstname, city, and state from the customers table
+for all of the rows where the state value is either: Arizona,
+Washington, Oklahoma, Colorado, or Hawaii.</h3>
+<pre class="mysql"><code>select firstname, city, state
+from customer
+where state in (&#39;Arizona&#39;, &#39;Washington&#39;, &#39;Oklahoma&#39;, &#39;Colorado&#39;, &#39;Hawaii&#39;);</code></pre>
+<p>Result:</p>
+<p><img
+src="https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q21.png"
+alt="Q21" /></p>
+<h3>22. Select the item and per unit price for each item in the
+items_ordered table.</h3>
+<pre class="mysql"><code>select item, round(price/quantity,2)
+from item;</code></pre>
+<p>Result:</p>
+<p><img
+src="https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q22.png"
+alt="Q22" /></p>
+<h3>23. Write a query using a join to determine which items were ordered
+by each of the customers in the customers table. Select the customerid,
+firstname, lastname, order_date, item, and price for everything each
+customer purchased in the items_ordered table.</h3>
+<pre class="mysql"><code>select i.customerid, c.firstname,c.lastname,i.order_date,i.item,i.price
+from item i inner join customer c
+on i.customerid = c.customerid;</code></pre>
+<p>Result:</p>
+<p><img
+src="https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q23.png"
+alt="Q23" /></p>
+<h3>24. Repeat the above query, however display the results sorted by
+state in descending order.</h3>
+<pre class="mysql"><code>select i.customerid, c.firstname,c.lastname,i.order_date,i.item,i.price
+from item i inner join customer c
+on i.customerid = c.customerid
+order by c.state desc;</code></pre>
+<p>Result:</p>
+<p><img
+src="https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/blob/main/Result%20Screenshot/Q24.png"
+alt="Q24" /></p>
+<h1>Conclusion</h1>
+<p>The analysis of the items_ordered and customers tables revealed
+valuable insights into customer purchasing behavior, product popularity,
+and overall sales performance. The key findings include:</p>
+<ul>
+<li><strong>Product Popularity:</strong> Identified the most and least
+popular products, helping to inform inventory and marketing
+strategies.</li>
+<li><strong>Purchasing Behavior:</strong> Gained an understanding of
+customer purchasing patterns, including the frequency of orders and
+total spending per customer, allowing for targeted marketing and
+personalized customer experiences.</li>
+<li><strong>Geographic Distribution:</strong> Analyzed the geographic
+distribution of customers and their purchasing behaviors, aiding in the
+development of region-specific marketing campaigns and stock
+distribution plans.</li>
+<li><strong>Price Sensitivity:</strong> Examined price trends and
+variations to understand customer price sensitivity, which can be
+leveraged to optimize pricing strategies and promotional offers.</li>
+<li><strong>Sales Performance:</strong> Evaluated overall sales
+performance, including total orders and revenue, and identified
+high-value customers and products, facilitating better resource
+allocation and business planning.</li>
+</ul>
+<p>By leveraging these insights, the retail business can make
+data-driven decisions to enhance inventory management, marketing
+effectiveness, and customer satisfaction. The structured approach to
+querying and analyzing the data ensures that the business problems are
+comprehensively addressed, paving the way for improved operational
+efficiency and increased profitability.</p>
+</body>
+</html>
