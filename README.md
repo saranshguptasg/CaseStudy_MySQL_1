@@ -1,5 +1,8 @@
 # CaseStudy-with-MySQL-1
 
+**Tools Used:** Excel, MySQL
+
+[Datasets Used](https://github.com/saranshguptasg/CaseStudy-with-MySQL-1/tree/main/DataSet)
 
 ### Creating Database and Importing CSV file
 ```mysql
